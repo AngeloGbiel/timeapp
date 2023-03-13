@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
+import ColorModeProvider from './components/ColorModeProvider'
+import {CSSreset} from './components/CSSreset'
+import MenuLeft from './components/menuLeft'
+import MenuRight from './components/menuRight'
 
-function App() {
+
+export default function HomePage() {
+  const [color,setColor]=useState("#ffffff")
+  const [size,setSize] = useState(100)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ColorModeProvider color={color} size={size}>
+        <MenuLeft/>
+        <MenuRight setColor = {setColor} setSize={setSize}/>
+        <Outlet/>
+        <CSSreset/>
+    </ColorModeProvider>
+  )
 }
-
-export default App;
