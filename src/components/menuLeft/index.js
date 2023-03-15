@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Switch from './Switch'
 import { Data } from '../config'
-import { Link } from 'react-router-dom'
 import * as RiIcons from 'react-icons/ri'
 import Menu from './Menu'
 
@@ -68,7 +67,7 @@ const Nav = styled.nav`
 
 export default function MenuLeft() {
   const [active, setActive] = useState(false)
-  const [focus, setFocus] = useState(parseInt(localStorage.getItem("id")))
+  const [focus, setFocus] = useState(0)
   return (
     <Nav active={active}>
       <div className='container'>

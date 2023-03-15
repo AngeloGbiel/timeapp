@@ -4,10 +4,10 @@ import { ThemeProvider } from 'styled-components'
 export const ColorModeContext = createContext()
 
 export default function ColorModeProvider({ children, ...props}) {
-  const [mode, setMode] = useState("dark")
-
+  const [mode, setMode] = useState('dark')
+  
   const toggle = () => {
-    setMode(mode=='light'?"dark":"light")
+    setMode(mode=='dark'?"light":"dark")
   }
 
   const theme = {

@@ -4,6 +4,7 @@ import * as RiIcons from 'react-icons/ri'
 import { Data } from '../config'
 import ColorText from './ColorText'
 import ColorModeProvider, { ColorModeContext } from '../ColorModeProvider'
+import { Navigate } from 'react-router-dom'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Nav = styled.nav`
