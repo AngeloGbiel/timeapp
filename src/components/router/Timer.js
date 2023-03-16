@@ -107,7 +107,7 @@ const TimerStyled = styled.div`
     }
     .time{
       font-size:300%;
-      color:black;
+      color:white;
     }
     .container form{
       width: 300px;
