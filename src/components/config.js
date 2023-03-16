@@ -33,5 +33,8 @@ export const Data = {
         { cor: "#820000" },
         { cor: "#FFFFFF" },
         { cor: "#000000" },
+    ],
+    aboutProject: [
+        
     ]
 }

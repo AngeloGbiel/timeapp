@@ -109,7 +109,12 @@ const TimerStyled = styled.div`
       font-size:300%;
       color:black;
     }
+    .container form{
+      width: 300px;
+      height:300px;
+    }
   }
+
   `
 let h = 0, m = 0, s = 0
 let timeLoop
@@ -136,16 +141,22 @@ export default function Timer() {
   }
   const start = () =>{
     clear()
-    setTimer(`${h}:${m}:${s}`)
     timeLoop = setInterval(()=>{
+      
       if(s == 0 && m == 0 && h == 0){
-        clear()
-        console.log('clear')
-      }else{
-        s--
-        if(s<10){s = '0'+s}
+        reset()
+        alert('Tempo Esgotado')
+        setAdd(false)
+        setBtn(false)
+      }else if(s > 60 || m > 60){ 
+        alert('Insira Formato válido (minuto e segundo menor que 60)')
+        reset()
+        setAdd(false)
+        setBtn(false)
+      }
+      else{
         setTimer(`${h}:${m}:${s}`)
-        if(s == 0 && m > 0){
+        if(s == 0 && m > 0){ //transforma minutos em m-- e segundos em 59
           console.log(s);
           s = 60
           m-- 
@@ -153,11 +164,13 @@ export default function Timer() {
         }
         if(m==0 && s == 0 && h >0){
           s = 60
-          m = 60
+          m = 59
           h--
           if(h<10){h = '0'+h}
         }
       }
+      s--
+      if(s<10){s = '0'+s}
     },1000)
   }
   const clear = () =>{
